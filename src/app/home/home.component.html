@@ -1,0 +1,31 @@
+<div class="container mt-5">
+  <div class="p-5 text-center bg-primary text-white rounded-3">
+    <div class="row align-items-center">
+      <div class="col-md-12">
+        <h1 class="display-4 fw-bold">Explore Our Exclusive Products</h1>
+        <p class="lead">Find the best deals on top-quality products tailored just for you. Shop now and enjoy amazing discounts!</p>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="container mt-4">
+  <div *ngIf="products$ | async as products; else emptyProduct">
+    <div *ngFor="let product of products" class="row mb-3 p-2 border rounded align-items-center">
+      <div class="col-md-2 d-flex justify-content-center align-items-center">
+        <img [src]="product.image" class="img-fluid rounded product-image">
+      </div>
+      <div class="col-md-10">
+        <h5 class="mb-1">{{ product.title }}</h5>
+        <p class="text-muted">{{ product.category }}</p>
+        <p>{{ product.description }}</p>
+        <p class="fw-bold">Price: ${{ product.price }}</p>
+        <button class="btn btn-primary" (click)="addToCart(product)">Add to Cart</button>
+      </div>
+    </div>
+  </div>
+  <ng-template #emptyProduct>
+    <p>Currently, no products are available.</p>
+  </ng-template>
+</div>  
+    
+  

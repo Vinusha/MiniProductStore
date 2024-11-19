@@ -1,0 +1,6 @@
+/* Limit the image size */
+.product-image {
+    max-width: 100px;
+    max-height: 100px;
+    object-fit: cover;  /* Ensure the image fits within the box */
+  }

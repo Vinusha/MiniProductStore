@@ -1,0 +1,40 @@
+<div *ngIf="users$ | async as users; else loading">
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <h2 class="my-4">User List</h2>
+      </div>
+    </div>
+    
+    <div class="row" *ngFor="let user of users">
+      <div class="col-md-6 col-lg-4 mb-4">
+        <div class="card h-100 shadow-sm">
+          <div class="card-body">
+            <h5 class="card-title">{{ user.name.firstname }} {{ user.name.lastname }}</h5>
+            
+            <p class="card-text"><strong>Email:</strong> {{ user.email }}</p>
+            <p class="card-text"><strong>Username:</strong> {{ user.username }}</p>
+            <p class="card-text"><strong>Phone:</strong> {{ user.phone }}</p>
+            
+            <div class="address mt-3">
+              <h6>Address:</h6>
+              <p><strong>City:</strong> {{ user.address.city }}</p>
+              <p><strong>Street:</strong> {{ user.address.street }} #{{ user.address.number }}</p>
+              <p><strong>Zip Code:</strong> {{ user.address.zipcode }}</p>
+              <p><strong>Geolocation:</strong> ({{ user.address.geolocation.lat }}, {{ user.address.geolocation.long }})</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<ng-template #loading>
+  <div class="container text-center my-4">
+    <div class="spinner-border" role="status">
+      <span class="visually-hidden">Loading...</span>
+    </div>
+    <p>Loading users...</p>
+  </div>
+</ng-template>

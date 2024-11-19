@@ -1,0 +1,83 @@
+<div class="container d-flex justify-content-center align-items-center vh-100">
+    <div class="card shadow-lg p-4" style="width: 100%; max-width: 500px;">
+      <h2 class="text-center mb-4">Add New Product</h2>
+      
+      <form (ngSubmit)="onSubmit(productForm)" #productForm="ngForm">
+        
+        <!-- Product Title -->
+        <div class="mb-3">
+          <label for="title" class="form-label">Title</label>
+          <input
+            type="text"
+            class="form-control"
+            id="title"
+            name="title"
+            [(ngModel)]="product.title"
+            required
+          />
+        </div>
+        
+        <!-- Product Price -->
+        <div class="mb-3">
+          <label for="price" class="form-label">Price</label>
+          <input
+            type="text"
+            class="form-control"
+            id="price"
+            name="price"
+            [(ngModel)]="product.price"
+            required
+            min="0"
+          />
+        </div>
+        
+        <!-- Product Category -->
+        <div class="mb-3">
+          <label for="category" class="form-label">Category</label>
+          <input
+            type="text"
+            class="form-control"
+            id="category"
+            name="category"
+            [(ngModel)]="product.category"
+            required
+          />
+        </div>
+        
+        <!-- Product Description -->
+        <div class="mb-3">
+          <label for="description" class="form-label">Description</label>
+          <textarea
+            class="form-control"
+            id="description"
+            name="description"
+            rows="3"
+            [(ngModel)]="product.description"
+            required
+          ></textarea>
+        </div>
+        
+        <!-- Product Image URL -->
+        <div class="mb-3">
+          <label for="image" class="form-label">Image URL</label>
+          <input
+            type="text"
+            class="form-control"
+            id="image"
+            name="image"
+            [(ngModel)]="product.image"
+          />
+        </div>
+
+        <div *ngIf="successMessage" class="alert alert-success">
+            {{ successMessage }}
+        </div>
+        
+        <!-- Submit Button -->
+        <button type="submit" class="btn btn-primary w-100" [disabled]="!productForm.valid">
+          Add Product
+        </button>
+      </form>
+    </div>
+  </div>
+  

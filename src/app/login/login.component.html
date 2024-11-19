@@ -1,0 +1,35 @@
+<div class="container mt-5 d-flex justify-content-center">
+  <div class="login-box p-4 border rounded shadow">
+    <h2 class="text-center mb-4">Login</h2>
+    
+    <form (ngSubmit)="onSubmit()">
+      <div class="mb-3">
+        <label for="username" class="form-label">Username</label>
+        <input
+          type="text"
+          id="username"
+          [(ngModel)]="username"
+          name="username"
+          class="form-control"
+          required
+        />
+      </div>
+      <div class="mb-3">
+        <label for="password" class="form-label">Password</label>
+        <input
+          type="password"
+          id="password"
+          [(ngModel)]="password"
+          name="password"
+          class="form-control"
+          required
+        />
+      </div>
+      <button type="submit" class="btn btn-primary w-100">Login</button>
+    </form>
+    <div *ngIf="errorMessage" class="text-danger mt-3">
+      {{ errorMessage }}
+    </div>
+  </div>
+</div>
+  
